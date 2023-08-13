@@ -27,7 +27,8 @@ const userSchema = new Schema({
     },
     username: {
         type: String,
-        required: true
+        required: true,
+        unique:[true,"Username already exists!"]
     }
 });
 
@@ -35,7 +36,7 @@ userSchema.methods = {
     jwtToken() {
         return JWT.sign({
             id:this._id,
-            email:this.email},
+            username:this.username},
             process.env.SECRET,
             {expiresIn: '24h'}
         )

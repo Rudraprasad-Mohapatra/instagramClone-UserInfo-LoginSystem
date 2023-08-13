@@ -54,10 +54,10 @@ const userLogin = async (req, res) => {
 
 const getUserDetails = async (req, res) => {
     const {id, username} = req.user;
-
+    console.log(id,username);
     try{
         const userData = await UserModel.findOne({username});
-        res.status(200).send({
+        res.status(200).json({
             msg:"Success",
             data:userData
         })
