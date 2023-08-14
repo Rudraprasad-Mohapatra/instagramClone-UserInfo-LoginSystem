@@ -35,7 +35,7 @@
             margin: 10px 0;
         }
 
-        .bio{
+        .bio {
             text-align: center;
             font-size: 16px;
             margin-bottom: 20px;
@@ -54,26 +54,34 @@
         <img src="https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_image_Processing.jpg"
             alt="Profile Image" class="profile-image">
         <h2 id="username" class="username">John Doe</h2>
-        <p id="userBio" class="bio">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-        <p id="userEmail" class="follower-count">Email:getting</p>
+        <p id="userbio" class="bio">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <p id="useremail" class="follower-count">Email:getting</p>
         <p class="follower-count">Followers:1000</p>
     </div>
 </body>
 <script>
     const userData = async () => {
         try {
-            const resp = await fetch("http://localhost:8087",{
+            const resp = await fetch("http://localhost:8087", {
                 method: "GET",
                 credentials: "include"
             });
-            if (resp.status !== 200) {
-                window.location.href = "http://localhost:5501/client/login.html"
-            }
+            if (resp.status !== 200) 
+                window.location.href = "http://127.0.0.1:5501/client/login.html"
+                const data = await resp.json();
+                const userName = document.getElementById("username");
+                const userEmail = document.getElementById("useremail");
+                const userBio = document.getElementById("userbio");
+                console.log(data);
+                userName.innerText = data.data.username;
+                userEmail.innerText = data.data.email;
+                userBio.innerText = data.data.bio;
         } catch (error) {
-            
+            console.log(error.message);
+            window.location.href = "http://127.0.0.1:5501/client/login.html"
         }
     }
-    // userData();
+    userData();
 </script>
 
 </html>
