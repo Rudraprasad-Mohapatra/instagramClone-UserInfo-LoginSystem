@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instagram Login</title>
+    <title>Instagram Sign Up</title>
     <style>
         body {
             background-color: #fafafa;
@@ -186,8 +186,8 @@
             loader.style.display = "none";
             const data = await resp.json();
             console.log(data);
-            alert("Signup")
-            // window.location.href = "http://localhost:5500/client/index.html"
+            alert("Signup Successfully!!!")
+            window.location.href = "http://127.0.0.1:5501/client/login.html"
         } catch (error) {
             console.log(error.message);
         }
