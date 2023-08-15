@@ -73,7 +73,7 @@
                 const userEmail = document.getElementById("useremail");
                 const userBio = document.getElementById("userbio");
                 console.log(data);
-                userName.innerText = data.data.username;
+                userName.innerText = "@" + data.data.username;
                 userEmail.innerText = data.data.email;
                 userBio.innerText = data.data.bio;
         } catch (error) {
